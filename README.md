@@ -15,7 +15,7 @@ In the normal JSON would the text look like this:
 
 In Markson would this now look like this:  
 ```
-Hey. Do you know [Google](hover:{text:["Click me!"]},click:{url:"https://google.com"})
+Hey. Do you know [Google](hover:{text:["Click me!"]},click:{url:"https://google.com"})?
 ```
 
 Doesn't this already look more clean?  

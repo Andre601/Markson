@@ -1,5 +1,5 @@
 ## Markson
-Markson (Mix of **Mark**down and J**SON**) is a library used for Spigot, that allows you to parse markdown-like text into JSON TextComponents.
+Markson (Combination of the names **Mark**down and J**SON**) is a library used for Spigot, that allows you to parse markdown-like text into JSON TextComponents.
 
 ### Syntax
 The syntax used in Markson is kind of similar to that of Markdown's embedded links, with some additional JSON parts.

@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'com.andre601'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile(group: 'org.spigotmc', name: 'spigot-api', version: '1.15.1-R0.1-SNAPSHOT')
+    compile(group: 'net.kyori', name: 'text-api', version: '3.0.0')
+}

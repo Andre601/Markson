@@ -13,7 +13,7 @@ In the normal JSON would the text look like this:
 
 In Markson would this now look like this:  
 ```
-Hey. Do you know [Google](on_hover:{show_text:["Click me!"]},on_click:{open_url:"https://google.com"})
+Hey. Do you know [Google](hover:{text:["Click me!"]},click:{url:"https://google.com"})
 ```
 
 Doesn't this already look more clean?  
@@ -26,13 +26,23 @@ It then returns a TextComponent, that can be used in normal `sendMessage` method
 ### Available options
 Markson has multiple available options to use.
 
-| Option:       | Syntax:                     | Description:                                                                                                   |
-| ------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `on_hover`    | `on_hover:{<component>}`    | Sets a values to display when you hover over the text with your cursor. You can only set one value.            |
-| `show_text`   | `show_text:["text","text"]` | Used in `on_hover`. Displays the provided text. Format is `["text","text"]` where each new text is a new line. |
-| `show_item`   | `show_item:"item_name"`     | Used in `on_hover`. Displays an item provided.                                                                 |
-|               |                             |                                                                                                                |
-| `on_click`    | `on_click:{<component>}`    | Sets an action to perform when clicking the text. You can only set one action.                                 |
-| `open_url`    | `open_url:"url"`            | Opens a provided URL when clicked.                                                                             |
-| `suggest_cmd` | `suggest_cmd:"command"`     | Suggests a command (or any other kind of text) to the player.                                                  |
-| `perform_cmd` | `perform_cmd:"command"`     | Lets the player execute a command. This has to be a valid command.                                             |
+#### `hover`
+`hover` is used to add an action to the text, when you hover over it with your cursor.  
+Currently supported are the following options:
+
+| Option:       | Syntax:                     | Description:                                                              |
+| ------------- | --------------------------- | ------------------------------------------------------------------------- |
+| `text`        | `text:["text","text"]`      | Displays the provided String(s). Each separate String is a new line.      |
+| `item`        | `item:"item_name"`          | Displays a specific item. Needs to be a valid item name (IDs don't count) |
+| `achievement` | `achievement:"achievement"` | Displays the defined achievement.                                         |
+
+#### `on_click`
+`click` is used to set actions that are performed when clicking the text.  
+Currently supported are the following options:
+
+| Option:       | Syntax:                 | Description:                                                                 |
+| ------------- | ----------------------- | ---------------------------------------------------------------------------- |
+| `url`         | `url:"url"`             | Opens a provided URL when clicked.                                           |
+| `suggest_cmd` | `suggest_cmd:"command"` | Puts a command (or any other provided text) into the chat bar of the player. |
+| `perform_cmd` | `perform_cmd:"command"` | Executes a command as the player who performs it.                            |
+| `copy`        | `copy:"text"`           | Copies the provided text into the player's clipboard (1.15+ only)            |

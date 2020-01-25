@@ -38,7 +38,7 @@ Currently supported are the following options:
 | `item`        | `item:"item_name"`          | Displays a specific item. Needs to be a valid item name (IDs don't count) |
 | `achievement` | `achievement:"achievement"` | Displays the defined achievement.                                         |
 
-#### `on_click`
+#### `click`
 `click` is used to set actions that are performed when clicking the text.  
 Currently supported are the following options:
 

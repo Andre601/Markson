@@ -15,7 +15,9 @@ sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenLocal()
-    mavenCentral()
+    jcenter()
+    maven{ url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven{ url = 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 jar{

@@ -1,4 +1,9 @@
 [links]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
+[docs]: https://Andre601.github.io/Markson
+[dev]: https://ci.codemc.io/job/Andre601/job/Markson
+
+[versionBadge]: https://jitpack.io/v/Andre601/Markson.svg
+[jitpack]: https://jitpack.io/#Andre601/Markson
 
 ## Markson
 Markson (Combination of the names **Mark**down and J**SON**) is a library used to parse Strings into JSON TextComponents using patterns similar to [markdown's embedded links][links].
@@ -48,3 +53,47 @@ Currently supported are the following options:
 | `suggest_cmd` | `suggest_cmd:"command"` | Puts a command (or any other provided text) into the chat bar of the player. |
 | `perform_cmd` | `perform_cmd:"command"` | Executes a command as the player who performs it.                            |
 | `copy`        | `copy:"text"`           | Copies the provided text into the player's clipboard (1.15+ only)            |
+
+## Installation
+We use [jitpack] to provide the jar files through Maven and Gradle.  
+To install Markson to your IDE of choice, follow the below instructions:
+
+> #### Latest Release
+> [![versionBadge]][jitpack]
+
+Please replace `{version}` in the below examples with the above displayed version.
+
+### Gradle
+Put this in your build.gradle file:  
+```gradle
+reositories {
+    maven{ url = "https://jitpack.io" }
+}
+
+dependencies{
+    implementation 'com.github.Andre601:Markson:{version}'
+}
+```
+
+### Maven
+Put this in your pom.xml file:  
+```xml
+<repositories>
+    <repository>
+	    <id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.Andre601</groupId>
+        <artifactId>Markson</artifactId>
+        <version>{version}</version>
+    </dependency>
+</dependencies>
+```
+
+## Links
+- [Javadocs][docs]
+- [Development Builds][dev]

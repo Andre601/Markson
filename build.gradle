@@ -1,16 +1,24 @@
 plugins {
     id 'java'
+    id 'java-library'
     id 'idea'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-group 'com.andre601'
-version '1.0.0'
+def ver = new Version(major: 0, minor: 0, revision: '2-BETA')
 
-sourceCompatibility = 1.8
+group "com.andre601"
+version "$ver"
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenLocal()
     mavenCentral()
+}
+
+jar{
+    getArchiveFileName().set("Markson")
 }
 
 dependencies {
@@ -20,9 +28,20 @@ dependencies {
     compile(group: 'org.json', name: 'json', version: '20190722')
 }
 
+task sourcesJar(type: Jar, dependsOn: classes){
+    getArchiveClassifier().set("sources")
+    from sourceSets.main.allSource
+}
+
 task javadocJar(type: Jar, dependsOn: javadoc){
     getArchiveClassifier().set("javadoc")
     from(javadoc.destinationDir)
+}
+
+artifacts{
+    archives sourcesJar
+    archives javadocJar
+    archives shadowJar
 }
 
 javadoc{
@@ -41,5 +60,25 @@ javadoc{
         if(JavaVersion.current().isJava11Compatible()){
             opt.addBooleanOption("-no-module-directories", true)
         }
+    }
+}
+
+build{
+    dependsOn(jar)
+    dependsOn(javadocJar)
+    dependsOn(sourcesJar)
+    dependsOn(shadowJar)
+}
+
+class Version{
+    String major, minor, revision
+    
+    static String getBuild(){
+        System.getenv("BUILD_NUMBER") ? "_" + System.getenv("BUILD_NUMBER") :
+        System.getProperty("BUILD_NUMBER") ? "_" + System.getProperty("BUILD_NUMBER") : ""
+    }
+    
+    String toString(){
+        "$major.$minor.${revision}$build"
     }
 }

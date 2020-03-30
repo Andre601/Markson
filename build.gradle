@@ -57,7 +57,8 @@ javadoc{
         def opt = options as StandardJavadocDocletOptions
         
         opt.links(
-                "https://docs.oracle.com/javase/8/docs/api/"
+                "https://docs.oracle.com/javase/8/docs/api/",
+                "https://hub.spigotmc.org/javadocs/spigot/"
         )
         
         if(JavaVersion.current().isJava9Compatible()){

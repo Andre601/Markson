@@ -19,3 +19,27 @@ dependencies {
     compile(group: 'net.kyori', name: 'text-serializer-gson', version: '3.0.3')
     compile(group: 'org.json', name: 'json', version: '20190722')
 }
+
+task javadocJar(type: Jar, dependsOn: javadoc){
+    getArchiveClassifier().set("javadoc")
+    from(javadoc.destinationDir)
+}
+
+javadoc{
+    source = sourceSets.main.allJava
+    destinationDir = file("$projectDir/docs/")
+    options.encoding = 'UTF-8'
+    options.memberLevel = JavadocMemberLevel.PROTECTED
+    
+    if(options instanceof StandardJavadocDocletOptions){
+        def opt = options as StandardJavadocDocletOptions
+        
+        if(JavaVersion.current().isJava9Compatible()){
+            opt.addBooleanOption("html5", true)
+            opt.addStringOption("-release", "8")
+        }
+        if(JavaVersion.current().isJava11Compatible()){
+            opt.addBooleanOption("-no-module-directories", true)
+        }
+    }
+}

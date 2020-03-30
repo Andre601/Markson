@@ -26,12 +26,12 @@ Hey. Do you know [Google](hover:{text:["Click me!"]},click:{url:"https://google.
 Doesn't this already look more clean?  
 Color and formatting codes can also be used. Either as the original character (`§`) or as the `&` character.
 
-### How does it work?
-Markson goes through the text and searches for specific patterns. When it finds those will it take the information in the `()`, parse it and apply it to the text.  
-It then returns a TextComponent, that can be used in normal `sendMessage` methods of Spigot.
-
-### Available options
-Markson has multiple available options to use.
+### How to Use (Server Admin/Owner)
+If you have a plugin, which utilizes Markson for their messages, will you only need to follow this formatting:  
+```
+[Your message here](options to apply)
+```  
+`options to apply` can be the following, available options.
 
 #### `hover`
 `hover` is used to add an action to the text, when you hover over it with your cursor.  
@@ -43,7 +43,7 @@ Currently supported are the following options:
 | `item`   | `item:"item_name"`     | Displays a specific item. Needs to be a valid item name (IDs don't count) |
 | `entity` | `entity:"entity_name"` | Displays the defined achievement.                                         |
 
-### `click`
+#### `click`
 `click` is used to set actions that are performed when clicking the text.  
 Currently supported are the following options:
 
@@ -52,9 +52,14 @@ Currently supported are the following options:
 | `url`         | `url:"url"`             | Opens a provided URL when clicked.                                           |
 | `suggest_cmd` | `suggest_cmd:"command"` | Puts a command (or any other provided text) into the chat bar of the player. |
 | `perform_cmd` | `perform_cmd:"command"` | Executes a command as the player who performs it.                            |
-| `copy`        | `copy:"text"`           | Copies the provided text into the player's clipboard (1.15+ only)            |
+| `copy`        | `copy:"text"`           | Currently not supported.                                                     |
 
-## Installation
+#### Using both actions
+You can use both hover and click actions in your text at the same time.  
+Note that they do not need to have a proper separation, although using a comma is still recommendet.
+
+## How to use (Developer)
+You first need to get the latest version of Markson to use.  
 We use [jitpack] to provide the jar files through Maven and Gradle.  
 To install Markson to your IDE of choice, follow the below instructions:
 
@@ -93,6 +98,10 @@ Put this in your pom.xml file:
     </dependency>
 </dependencies>
 ```
+
+### Using Markson
+You can now just get an instance of the `Markson` class and use one of its `parser` methods to parse a String.  
+Note that the returned TextComponent is NOT usable in Spigot/BungeeCord and reqiores you to first convert it using the `JsonUtil`.
 
 ## Links
 - [Javadocs][docs]

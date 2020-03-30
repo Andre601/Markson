@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class containing methods to transform the {@link net.kyori.text.TextComponent TextComponents} into either
+ * {@link #getJson(TextComponent) JSON Strings} or {@link #getBaseComponents(TextComponent) BaseComponents}.
+ */
 public class JsonUtil{
     private final Pattern TEXT = Pattern.compile("text:(?<text>\\[.+])", Pattern.DOTALL);
     

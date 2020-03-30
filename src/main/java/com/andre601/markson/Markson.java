@@ -41,7 +41,9 @@ public class Markson{
      *         The String to parse.
      *
      * @return A {@link net.kyori.text.TextComponent TextComponet} that can be used.
-     *         <br>The TextComponent will be {@link net.kyori.text.TextComponent#empty() empty} when no pattern was found.
+     *         <br>The TextComponent will just contain the provided text itself, if nothing could be found to parse.
+     * 
+     * @see #parse(String, boolean) parse(String, boolean)
      */
     public TextComponent parse(String text){
         return parse(text, true);
@@ -67,7 +69,7 @@ public class Markson{
      *         If the parser should also translate color codes.
      * 
      * @return A {@link net.kyori.text.TextComponent TextComponet} that can be used.
-     *         <br>The TextComponent will be {@link net.kyori.text.TextComponent#empty() empty} when no pattern was found.
+     *         <br>The TextComponent will just contain the provided text itself, if nothing could be found to parse.
      */
     public TextComponent parse(String text, boolean translateColors){
         if(translateColors)
@@ -83,7 +85,7 @@ public class Markson{
             
             return builder.build();
         }else{
-            return TextComponent.empty();
+            return TextComponent.of(text);
         }
     }
     

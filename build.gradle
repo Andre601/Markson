@@ -15,5 +15,7 @@ repositories {
 
 dependencies {
     compile(group: 'org.spigotmc', name: 'spigot-api', version: '1.15.1-R0.1-SNAPSHOT')
-    compile(group: 'net.kyori', name: 'text-api', version: '3.0.0')
+    compile(group: 'net.kyori', name: 'text-api', version: '3.0.3')
+    compile(group: 'net.kyori', name: 'text-serializer-gson', version: '3.0.3')
+    compile(group: 'org.json', name: 'json', version: '20190722')
 }

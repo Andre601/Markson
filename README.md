@@ -101,7 +101,7 @@ Put this in your pom.xml file:
 
 ### Using Markson
 You can now just get an instance of the `Markson` class and use one of its `parser` methods to parse a String.  
-Note that the returned TextComponent is NOT usable in Spigot/BungeeCord and reqiores you to first convert it using the `JsonUtil`.
+Note that the returned TextComponent is NOT usable in Spigot/BungeeCord and requires you to first convert it using the `JsonUtil`.
 
 ## Links
 - [Javadocs][docs]
